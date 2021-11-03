@@ -4,13 +4,13 @@ import "./index.css";
 export default function Calculator() {
   const [input1, setInput1] = useState("");
   const [count, setCount] = useState(0);
-  const [result, setResult] = useState('reset');
+  const [result, setResult] = useState("reset");
   const [input2, setInput2] = useState("");
   const [operation, setOperation] = useState("+");
 
   const action = (operation) => {
     if (input1 && input2) {
-      setCount(count => count +1);
+      setCount((count) => count + 1);
       const num1 = parseInt(input1);
       const num2 = parseInt(input2);
       setOperation(operation);
@@ -32,17 +32,16 @@ export default function Calculator() {
   };
   const reset = () => {
     setOperation("+");
-    setInput1('');
-    setInput2('');
-    setResult('reset');
+    setInput1("");
+    setInput2("");
+    setResult("reset");
   };
 
   return (
     <div className="layout-column align-items-center">
-      <div
-        data-testid="total-operations"
-        className="pt-50 total-operations"
-  >Total operations performed: {count}</div>
+      <div data-testid="total-operations" className="pt-50 total-operations">
+        Total operations performed: {count}
+      </div>
       <div className="card">
         <section className="card-text">
           <div className="layout-row justify-content-around align-items-center mt-40">
@@ -63,7 +62,7 @@ export default function Calculator() {
               {operation}
             </label>
             <input
-             onChange={(e) => setInput2(e.target.value)}
+              onChange={(e) => setInput2(e.target.value)}
               value={input2}
               type="number"
               data-testid="app-input2"
@@ -77,7 +76,7 @@ export default function Calculator() {
             <button
               className="operationFont"
               type="submit"
-              onClick={() => action('+')}
+              onClick={() => action("+")}
               data-testid="addButton"
             >
               +
@@ -85,7 +84,7 @@ export default function Calculator() {
             <button
               className="operationFont"
               type="submit"
-              onClick={() => action('-')}
+              onClick={() => action("-")}
               data-testid="subtractButton"
             >
               -
@@ -93,7 +92,7 @@ export default function Calculator() {
             <button
               className="operationFont"
               type="submit"
-              onClick={() => action('*')}
+              onClick={() => action("*")}
               data-testid="multiplyButton"
             >
               *
@@ -101,7 +100,7 @@ export default function Calculator() {
             <button
               className="operationFont"
               type="submit"
-              onClick={() => action('/')}
+              onClick={() => action("/")}
               data-testid="divideButton"
             >
               /
@@ -118,10 +117,14 @@ export default function Calculator() {
               Reset
             </button>
             <div className="layout-row justify-content-center align-items-center result-container">
-              {result !== 'reset' && <div
-                data-testid="result"
-                className="result-value ma-0 slide-up-fade-in"
-              >Result: {result}</div>}
+              {result !== "reset" && (
+                <div
+                  data-testid="result"
+                  className="result-value ma-0 slide-up-fade-in"
+                >
+                  Result: {result}
+                </div>
+              )}
             </div>
           </div>
         </section>
